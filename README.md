@@ -1,13 +1,13 @@
-# Disaster Response Pipeline Project
+# Disaster Response Project
 
 ## Installation
-The following python libraries are required to run this project. 
+The following python libraries are required to run this project:
+
 pandas, numpy, re, pickle, nltk, flask, json, plotly, sklearn, sqlalchemy, sys.
 
 ## Project Overview
 This code is designed and developed to run a web app which helps in disaster management (e.g. Flood, Earthquake etc.). In the event of a natural disaster, thousands of messages are sent on social media seeking help of various categories. This disaster response pipeline will classify those text messages into several categories which can then be monitored by respective government bodies.
 
-The app built to have an ML model to categorize every message received
 ## File Description:
 * **process_data.py**: This file takes csv files as input containing message data and message categories (labels), and then merges the data and exports it into a database table.
 * **train_classifier.py**: This file imports the data from database table and trains the ML model on training set and evaluates accuracy.
@@ -40,3 +40,11 @@ The app built to have an ML model to categorize every message received
 
 ## Licensing, Authors, Acknowledgements
 This app was completed as part of the [Udacity Data Scientist Nanodegree](https://www.udacity.com/course/data-scientist-nanodegree--nd025).
+
+Author: Rahul Gupta Copyright 2020
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
