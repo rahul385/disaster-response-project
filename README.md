@@ -1,7 +1,8 @@
 # Disaster Response Project
 
 ## Installation
-The following python libraries are required to run this project. 
+The following python libraries are required to run this project:
+
 pandas, numpy, re, pickle, nltk, flask, json, plotly, sklearn, sqlalchemy, sys.
 
 ## Project Overview
