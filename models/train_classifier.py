@@ -14,6 +14,7 @@ from sklearn.metrics import precision_score,recall_score,classification_report,f
 from sklearn.multioutput import MultiOutputClassifier
 import numpy as np
 from sklearn.model_selection import GridSearchCV
+import pickle
 
 def load_data(database_filepath):
     """
@@ -55,10 +56,11 @@ def build_model():
                      ('tfidf',TfidfTransformer()),
                     ('clf', MultiOutputClassifier(RandomForestClassifier()))])
     
-    parameters = {'vect__min_df': [1, 5],
+    parameters = {'vect__min_df': [1],
               'tfidf__use_idf':[True, False],
               'clf__estimator__n_estimators':[10, 25], 
-              'clf__estimator__min_samples_split':[2, 5, 10]}
+              'clf__estimator__min_samples_split':[2, 5, 10]
+              }
     
     cv = GridSearchCV(pipeline, param_grid = parameters, verbose = 10)
     
@@ -105,7 +107,7 @@ def evaluate_model(model, X_test, y_test, category_names):
         scores
     """
     y_pred = model.predict(X_test)
-    col_names = list(y.columns.values)
+    col_names = list(y_test.columns.values)
     print(eval_metrics(np.array(y_test), y_pred, col_names))
 
 

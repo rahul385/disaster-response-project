@@ -26,11 +26,11 @@ def tokenize(text):
     return clean_tokens
 
 # load data
-engine = create_engine('sqlite:///../data/YourDatabaseName.db')
-df = pd.read_sql_table('YourTableName', engine)
+engine = create_engine('sqlite:///../data/DisasterResponse.db')
+df = pd.read_sql_table('disaster', engine)
 
 # load model
-model = joblib.load("../models/your_model_name.pkl")
+model = joblib.load("../models/classifier.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
@@ -40,31 +40,71 @@ def index():
     
     # extract data needed for visuals
     # TODO: Below is an example - modify to extract data for your own visuals
-    genre_counts = df.groupby('genre').count()['message']
-    genre_names = list(genre_counts.index)
+    gen_count = df.groupby('genre').count()['message']
+    gen_per = round(100*gen_count/gen_count.sum(), 2)
+    gen = list(gen_count.index)
+    cat_num = df.drop(['id', 'message', 'original', 'genre'], axis = 1).sum()
+    cat_num = cat_num.sort_values(ascending = False)
+    cat = list(cat_num.index)
+
+    colors = ['yellow', 'green', 'red']
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
+    
     graphs = [
         {
-            'data': [
-                Bar(
-                    x=genre_names,
-                    y=genre_counts
-                )
-            ],
-
-            'layout': {
-                'title': 'Distribution of Message Genres',
-                'yaxis': {
-                    'title': "Count"
+            "data": [
+              {
+                "type": "pie",
+                "uid": "f4de1f",
+                "hole": 0.4,
+                "name": "Genre",
+                "pull": 0,
+                "domain": {
+                  "x": gen_per,
+                  "y": gen
                 },
-                'xaxis': {
-                    'title': "Genre"
+                "marker": {
+                  "colors": [
+                    "#7fc97f",
+                    "#beaed4",
+                    "#fdc086"
+                   ]
+                },
+                "textinfo": "label+value",
+                "hoverinfo": "all",
+                "labels": gen,
+                "values": gen_count
+              }
+            ],
+            "layout": {
+              "title": "Messages Count by Genre"
+            }
+        },
+        {
+            "data": [
+              {
+                "type": "bar",
+                "x": cat,
+                "y": cat_num,
+                "marker": {
+                  "color": 'blue'}
                 }
+            ],
+            "layout": {
+              "title": "Message Count by Category",
+              'yaxis': {
+                  'title': "Count"
+              },
+              'xaxis': {
+                  'title': "Category"
+              },
+              'barmode': 'group'
             }
         }
     ]
+
     
     # encode plotly graphs in JSON
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
