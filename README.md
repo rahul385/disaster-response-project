@@ -1,4 +1,4 @@
-# Disaster Response Pipeline Project
+# Disaster Response Project
 
 ## Installation
 The following python libraries are required to run this project. 
@@ -7,7 +7,6 @@ pandas, numpy, re, pickle, nltk, flask, json, plotly, sklearn, sqlalchemy, sys.
 ## Project Overview
 This code is designed and developed to run a web app which helps in disaster management (e.g. Flood, Earthquake etc.). In the event of a natural disaster, thousands of messages are sent on social media seeking help of various categories. This disaster response pipeline will classify those text messages into several categories which can then be monitored by respective government bodies.
 
-The app built to have an ML model to categorize every message received
 ## File Description:
 * **process_data.py**: This file takes csv files as input containing message data and message categories (labels), and then merges the data and exports it into a database table.
 * **train_classifier.py**: This file imports the data from database table and trains the ML model on training set and evaluates accuracy.
