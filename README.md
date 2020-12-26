@@ -6,7 +6,9 @@ The following python libraries are required to run this project:
 pandas, numpy, re, pickle, nltk, flask, json, plotly, sklearn, sqlalchemy, sys.
 
 ## Project Overview
-This code is designed and developed to run a web app which helps in disaster management (e.g. Flood, Earthquake etc.). In the event of a natural disaster, thousands of messages are sent on social media seeking help of various categories. This disaster response pipeline will classify those text messages into several categories which can then be monitored by respective government bodies.
+The objective of this Machine Learning project is to analyze thousands of real messages sent during natural disasters either via social media or directly to disaster response organizations. 
+
+Machine learning is critical to helping different disaster response organizations understand which messages are relevant to them and which messages to prioritize. During these disasters is when they have the least capacity to filter out messages that matter, and find basic methods such as using key word searches to provide trivial results. This disaster response pipeline will classify those text messages into several categories which can easily be monitored by respective disaster management organizations.
 
 ## File Description:
 * **process_data.py**: This file takes csv files as input containing message data and message categories (labels), and then merges the data and exports it into a database table.
