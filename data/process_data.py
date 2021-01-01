@@ -1,7 +1,6 @@
 # import libraries
 import sys
 import pandas as pd
-import re
 from sqlalchemy import create_engine
 
 def load_data(messages_filepath, categories_filepath):
@@ -39,31 +38,36 @@ def clean_data(df):
     
     categories = df.categories.str.split(';',expand=True)
 
-    row = categories[:1]
+    # select the first row of the categories dataframe
+    # use this row to extract a list of new column names for categories.
     category_colnames=[]
-    for i in row:
-        category_colnames.append(row[i][0][0:-2])
-        
+    for cat in df.categories[0].split(';'):
+        category_colnames.append(str(cat)[:-2])
+    
+    # rename the columns of categories df
     categories.columns = category_colnames
+    
+    for col in categories.columns:
+        for row in range(df.shape[0]):
+            categories[col][row]=categories[col][row][-1:]
+    
+    # Convert the column data typs from string to a int
+    for col in categories.columns:
+        categories[col]=categories[col].astype(int)
+    
+    # drop the original categories column from `df`
+    df.drop('categories',axis=1,inplace=True)
 
-    def find_number(text):
-        num = re.findall(r'[0-9]+',text)
-        return " ".join(num)
-        
-    for i in categories:
-        # set each value to be the last character of the string
-        categories[i] = categories[i]=categories[i].apply(lambda x: find_number(x))
-        
-        # convert column from string to numeric
-        categories[i] = categories[i].astype('int')
+    # Join df and categories data frames.
+    df_final=df.join(categories)
     
-    # drop original column and add the column split into multiple categories
-    df=df.drop('categories',axis=1)
-    df = pd.concat([df,categories],axis=1)
+    # Remove records where related=2
+    df_final=df_final[df_final['related']!=2]
     
-    # drop duplicate rows   
-    df.drop_duplicates(inplace=True)
-    return df
+    # drop duplicates
+    df_final.drop_duplicates(inplace=True)
+    
+    return df_final
 
 def save_data(df, database_filename):
     """
@@ -75,7 +79,7 @@ def save_data(df, database_filename):
     """
     
     engine = create_engine('sqlite:///'+database_filename)
-    df.to_sql('disaster', engine, index=False,if_exists='replace')
+    df.to_sql('disaster_response', engine, index=False,if_exists='replace')
 
 def main():
     if len(sys.argv) == 4:
