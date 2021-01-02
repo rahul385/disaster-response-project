@@ -5,21 +5,9 @@ import nltk
 nltk.download(['punkt','stopwords'])
 import pandas as pd
 from sqlalchemy import create_engine
-from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import CountVectorizer,TfidfTransformer
-from sklearn.linear_model import LogisticRegression
-#import xgboost as xgb
-from sklearn.naive_bayes import GaussianNB
-from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import VotingClassifier
-from sklearn.tree import DecisionTreeClassifier
 from sklearn.multioutput import MultiOutputClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix,accuracy_score,precision_score,classification_report,recall_score,f1_score
@@ -38,8 +26,8 @@ def load_data(database_filepath):
     """
     engine = create_engine('sqlite:///'+database_filepath)
     df = pd.read_sql('disaster_response',engine)
-    X = df.message
-    Y = df.drop(['id','message','original','genre'],axis=1)
+    X = df.message.head(10)
+    Y = df.drop(['id','message','original','genre'],axis=1).head(10)
     return X,Y
     
 def build_model():
@@ -54,9 +42,8 @@ def build_model():
                         ('clf',MultiOutputClassifier(RandomForestClassifier()))
                         ])
     
-    parameters = {'vect__min_df': [1]
-              ,'tfidf__use_idf':[True, False]
-              ,'clf__estimator__n_estimators':[10, 25], 
+    parameters = {'tfidf__use_idf':[True, False]
+              ,'clf__estimator__n_estimators':[10, 25]
               ,'clf__estimator__min_samples_split':[2, 5, 10]
               }
     
