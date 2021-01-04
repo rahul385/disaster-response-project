@@ -1,9 +1,10 @@
 # Disaster Response Project
+https://webapp-flask-disaster-response.herokuapp.com/
 
 ## Installation
 The following python libraries are required to run this project:
 
-pandas, numpy, re, pickle, nltk, flask, json, plotly, sklearn, sqlalchemy, sys.
+pandas, pickle, nltk, flask, json, plotly, sklearn, sqlalchemy.
 
 ## Project Overview
 The objective of this Machine Learning project is to analyze thousands of real messages sent during natural disasters either via social media or directly to disaster response organizations. 
@@ -11,12 +12,33 @@ The objective of this Machine Learning project is to analyze thousands of real m
 Machine learning is critical to helping different disaster response organizations understand which messages are relevant to them and which messages to prioritize. During these disasters is when they have the least capacity to filter out messages that matter, and find basic methods such as using key word searches to provide trivial results. This disaster response pipeline will classify those text messages into several categories which can easily be monitored by respective disaster management organizations.
 
 ## File Description:
-* **process_data.py**: This file takes csv files as input containing message data and message categories (labels), and then merges the data and exports it into a database table.
-* **train_classifier.py**: This file imports the data from database table and trains the ML model on training set and evaluates accuracy.
-* **ETL Pipeline Preparation.ipynb**:  Jupyter notebook for process_data.py
-* **ML Pipeline Preparation.ipynb**: Jupyter notebook for train_classifier.py
+
 * **data**: This folder contains real messages received during a natural disaster in csv format.
-* **app**: This folder cointains the run.py to iniate the web app.
+    * `disaster_categories.csv` : Contains name of the package and author's information
+    * `disaster_messages.csv` : Contains name of the package and author's information
+    * `DisasterResponse.db` : Contains name of the package and author's information
+    * `process_data.py` : This python module takes csv files as input containing messages and categories (labels), cleans and processes the data and then exports it into a database table.
+    
+* **models**: This folder contains real messages received during a natural disaster in csv format.
+    * `classifier.pkl` : Contains name of the package and author's information
+    * `train_classifier.py` : This file imports the data from database table and trains a Machine Learnin model to classify messages among 36 different categories.
+    * `utils.py` : Contains name of the package and author's information
+
+* **templates**: This folder contains real messages received during a natural disaster in csv format.
+    * `go.html` : Contains name of the package and author's information
+    * `master.html` : This file imports the data from database table and trains a Machine Learnin model to classify messages among 36 different categories.
+
+* **Visualizations**: This folder contains real messages received during a natural disaster in csv format.
+    * `Message_Count_By_Category.PNG` : Contains name of the package and author's information
+    * `Message_Count_By_Genre.PNG` : This file imports the data from database table and trains a Machine Learnin model to classify messages among 36 different categories.
+
+* **ETL Pipeline Preparation.ipynb**:  Jupyter notebook for process_data.py
+
+* **ML Pipeline Preparation.ipynb**: Jupyter notebook for train_classifier.py
+
+* **run.py**: This folder cointains the run.py to iniate the web app.
+
+* **utils.py**: This folder cointains the run.py to iniate the web app.
 
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
@@ -29,7 +51,8 @@ Machine learning is critical to helping different disaster response organization
 2. Run the following command in the app's directory to run your web app.
     `python run.py`
 
-3. Go to http://0.0.0.0:3001/
+3. The web application deployed on Heroku can be accessed through the below URL
+https://webapp-flask-disaster-response.herokuapp.com/
 
 ## Screenshots
 
