@@ -14,38 +14,38 @@ Machine learning is critical to helping different disaster response organization
 ## File Description:
 
 * **data**: This folder contains real messages received during a natural disaster in csv format.
-    * `disaster_categories.csv` : Contains name of the package and author's information
-    * `disaster_messages.csv` : Contains name of the package and author's information
-    * `DisasterResponse.db` : Contains name of the package and author's information
+    * `disaster_categories.csv`
+    * `disaster_messages.csv`
     * `process_data.py` : This python module takes csv files as input containing messages and categories (labels), cleans and processes the data and then exports it into a database table.
+    * `DisasterResponse.db` : The database file generated and saved after running python module "process_data.py"
     
 * **models**: This folder contains real messages received during a natural disaster in csv format.
-    * `classifier.pkl` : Contains name of the package and author's information
     * `train_classifier.py` : This file imports the data from database table and trains a Machine Learnin model to classify messages among 36 different categories.
-    * `utils.py` : Contains name of the package and author's information
+    * `classifier.pkl` : The model generated and saved after running python module "train_classifier.py"
+    * `utils.py` : Python module to clean, normalize and tokenize the text.
 
 * **templates**: This folder contains real messages received during a natural disaster in csv format.
-    * `go.html` : Contains name of the package and author's information
-    * `master.html` : This file imports the data from database table and trains a Machine Learnin model to classify messages among 36 different categories.
+    * `go.html`
+    * `master.html`
 
-* **Visualizations**: This folder contains real messages received during a natural disaster in csv format.
-    * `Message_Count_By_Category.PNG` : Contains name of the package and author's information
-    * `Message_Count_By_Genre.PNG` : This file imports the data from database table and trains a Machine Learnin model to classify messages among 36 different categories.
+* **Visualizations**: This folder contains the images generated as part of analysis. These images are also displayed in the web application deployed on Heroku. 
+    * `Message_Count_By_Category.PNG`
+    * `Message_Count_By_Genre.PNG`
 
 * **ETL Pipeline Preparation.ipynb**:  Jupyter notebook for process_data.py
 
 * **ML Pipeline Preparation.ipynb**: Jupyter notebook for train_classifier.py
 
-* **run.py**: This folder cointains the run.py to iniate the web app.
+* **utils.py**: Python module to clean, normalize and tokenize the text.
 
-* **utils.py**: This folder cointains the run.py to iniate the web app.
+* **run.py**: Main python module contains the entire executionflow and also renders visualizations on html.
 
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
 
     - To run ETL pipeline that cleans data and stores in database
         `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
-    - To run ML pipeline that trains classifier and saves
+    - To run ML pipeline that trains classifier and saves the model
         `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
 
 2. Run the following command in the app's directory to run your web app.
@@ -64,7 +64,7 @@ https://webapp-flask-disaster-response.herokuapp.com/
 
 
 ## Licensing, Authors, Acknowledgements
-This app was completed as part of the [Udacity Data Scientist Nanodegree](https://www.udacity.com/course/data-scientist-nanodegree--nd025).
+This web application was developed as part of the [Udacity Data Scientist Nanodegree](https://www.udacity.com/course/data-scientist-nanodegree--nd025).
 
 Author: Rahul Gupta Copyright 2020
 
