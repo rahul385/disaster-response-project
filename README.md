@@ -4,7 +4,7 @@
 1. [Project Overview](#project)
 2. [File Description](#file)
 3. [Visualizations](#image)
-4. [Licensing, Authors, and Acknowledgements](#licensing)
+4. [Licensing, Authors, and Acknowledgements](#license)
 
 ## Project Overview <a name="project"></a>
 The objective of this Machine Learning project is to analyze thousands of real messages sent during natural disasters either via social media or directly to disaster response organizations. 
@@ -54,6 +54,7 @@ Machine learning is critical to helping different disaster response organization
     `python run.py`
 
 3. The web application deployed on Heroku can be accessed through the below URL
+
 https://webapp-flask-disaster-response.herokuapp.com/
 
 ## Screenshots <a name="image"></a>
