@@ -1,17 +1,19 @@
 # Disaster Response Project
-https://webapp-flask-disaster-response.herokuapp.com/
 
-## Installation
-The following python libraries are required to run this project:
+### Table of Contents
+1. [Project Overview](#project)
+2. [File Description](#file)
+3. [Visualizations](#image)
+4. [Licensing, Authors, and Acknowledgements](#licensing)
 
-pandas, pickle, nltk, flask, json, plotly, sklearn, sqlalchemy.
-
-## Project Overview
+## Project Overview <a name="project"></a>
 The objective of this Machine Learning project is to analyze thousands of real messages sent during natural disasters either via social media or directly to disaster response organizations. 
+
+[Disaster Resposne Web-Application](https://webapp-flask-disaster-response.herokuapp.com/)
 
 Machine learning is critical to helping different disaster response organizations understand which messages are relevant to them and which messages to prioritize. During these disasters is when they have the least capacity to filter out messages that matter, and find basic methods such as using key word searches to provide trivial results. This disaster response pipeline will classify those text messages into several categories which can easily be monitored by respective disaster management organizations.
 
-## File Description:
+## File Description <a name="file"></a>
 
 * **data**: This folder contains real messages received during a natural disaster in csv format.
     * `disaster_categories.csv`
@@ -54,16 +56,18 @@ Machine learning is critical to helping different disaster response organization
 3. The web application deployed on Heroku can be accessed through the below URL
 https://webapp-flask-disaster-response.herokuapp.com/
 
-## Screenshots
+## Screenshots <a name="image"></a>
 
 ***Screenshot 1: Message Count by Category***
+
 ![Screenshot 1](https://github.com/rahul385/disaster-response-project/blob/master/visualizations/Message_Count_By_Category.PNG)
 
 ***Screenshot 2: Message Count by Genre***
+
 ![Screenshot 2](https://github.com/rahul385/disaster-response-project/blob/master/visualizations/Message_Count_By_Genre.PNG)
 
 
-## Licensing, Authors, Acknowledgements
+## Licensing, Authors, Acknowledgements <a name="license"></a>
 This web application was developed as part of the [Udacity Data Scientist Nanodegree](https://www.udacity.com/course/data-scientist-nanodegree--nd025).
 
 Author: Rahul Gupta Copyright 2020
