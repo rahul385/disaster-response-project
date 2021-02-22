@@ -1,10 +1,17 @@
 # Disaster Response Project
 
 ### Table of Contents
-1. [Project Overview](#project)
-2. [File Description](#file)
-3. [Visualizations](#image)
-4. [Licensing, Authors, and Acknowledgements](#license)
+1. [Installation](#installation)
+2. [Project Overview](#project)
+3. [File Description](#file)
+4. [Visualizations](#image)
+5. [Licensing, Authors, and Acknowledgements](#license)
+
+## Installation <a name="installation"></a>
+
+All the librarires required to run the code are mentioned in [requirements.txt](https://github.com/rahul385/disaster-response-web-application/blob/master/requirements.txt).
+
+To install Run: `pip install -r requirements.txt`
 
 ## Project Overview <a name="project"></a>
 The objective of this Machine Learning project is to analyze thousands of real messages sent during natural disasters either via social media or directly to disaster response organizations. 
