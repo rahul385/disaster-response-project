@@ -1,5 +1,7 @@
 # Disaster Response Project
 
+<p align = 'center'><img src = 'logo.PNG', height=250, width =780></p>
+
 ### Table of Contents
 1. [Installation](#installation)
 2. [Project Overview](#project)
@@ -16,6 +18,7 @@ To install Run: `pip install -r requirements.txt`
 ## Project Overview <a name="project"></a>
 The objective of this Machine Learning project is to analyze thousands of real messages sent during natural disasters either via social media or directly to disaster response organizations. 
 
+Below is the link to web application that I have deployed on Heroku.
 [Disaster Resposne Web-Application](https://webapp-flask-disaster-response.herokuapp.com/)
 
 Machine learning is critical to helping different disaster response organizations understand which messages are relevant to them and which messages to prioritize. During these disasters is when they have the least capacity to filter out messages that matter, and find basic methods such as using key word searches to provide trivial results. This disaster response pipeline will classify those text messages into several categories which can easily be monitored by respective disaster management organizations.
